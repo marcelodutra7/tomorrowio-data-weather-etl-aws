@@ -7,3 +7,17 @@ Este é um projeto de ETL usando API do Tomorrow.io para coletar dados meteorol�
 ### Sobre o Tomorrow.io/API
 
 O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados meteorológicos, garantindo ao mesmo tempo um uso justo. O plano gratuíto permite aos usuários um número grande de solicitações de API, segmentadas em limites diários, horários e por segundo. Discriminação dos limites de taxa: 500 solicitações por dia. Maiores informações em [Tomorrow.io API](https://docs.tomorrow.io/reference/welcome).
+
+### Serviços AWS usados
+
+- **Lambda:** Lambda é um serviço de computação sem servidor que permite que você execute seu código sem gerenciar servidores. Você pode usar o Lambda para executar código em resposta a eventos como alterações no S3, DynamoDB ou outros serviços da AWS.
+- **IAM Role:** Uma IAM Role é uma identidade que pode ser criada no AWS Identity and Access Management (AWS IAM) e ter permissões atribuídas a ela diretamente ou via políticas do IAM.
+- **CloudWatch:** o Amazon CloudWatch coleta e visualiza logs, métricas e dados de eventos em tempo real em painéis automatizados para otimizar sua infraestrutura e manutenção de aplicativos.
+- **Kinesis:** o Amazon Kinesis é um serviço de streaming de dados totalmente gerenciado pela AWS. Ele permite a ingestão, processamento e análise em tempo real de grandes volumes de dados de streaming.
+- **SNS:** o SNS (Simple Notification Service), provê um serviço de notificações. É uma forma de publicar mensagens destinadas a um ou mais inscritos na forma de endpoints.
+- **S3 (Simple Storage Service):** O Amazon S3 é um serviço de armazenamento de objetos altamente escalável que pode armazenar e recuperar qualquer quantidade de dados de qualquer lugar na web. Ele é comumente usado para armazenar e distribuir grandes arquivos de mídia, backups de dados e arquivos estáticos de sites.
+- **Glue Crawler:** O Glue Crawler é um serviço totalmente gerenciado que rastreia automaticamente suas fontes de dados, identifica formatos de dados e infere esquemas para criar um AWS Glue Data Catalog.
+- **Glue:** o AWS Glue é um serviço de integração de dados com tecnologia sem servidor que facilita aos usuários de análise a descoberta, preparação, transferência e integração de dados de várias fontes.
+- **Athena:** o Amazon Athena é um serviço de consulta interativo que facilita a análise de dados no Amazon S3 usando SQL padrão. Você pode usar o Athena para analisar dados no seu Glue Data Catalog ou em outros buckets do S3.
+
+### Arquitetura
