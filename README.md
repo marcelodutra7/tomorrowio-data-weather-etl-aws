@@ -21,3 +21,5 @@ O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados mete
 - **Athena:** o Amazon Athena é um serviço de consulta interativo que facilita a análise de dados no Amazon S3 usando SQL padrão. Você pode usar o Athena para analisar dados no seu Glue Data Catalog ou em outros buckets do S3.
 
 ### Arquitetura
+
+<img width="1163" alt="aws_pipeline_realtime_and_pipeline_batch" src="https://github.com/marcelodutra7/my-repository/blob/cda4f607fde1c24276d6793a5921e6f2713936ee/images/aws_pipeline_realtime_and_pipeline_batch.jpg">
