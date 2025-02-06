@@ -27,11 +27,19 @@ O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados mete
 ### Pipeline Real time - Steps
 
 - Use o AWS Lambda (producer) para extrair os dados metereológicos da API do Tomorrow.io.
-- Use o AWS CloudWatch para implantar o gatilho que ativará o código Python presente no AWS Lambda (producer) em uma periodicidade pré-estabelecida.
+- Use o AWS CloudWatch para implantar o gatilho que ativará o código Python presente no AWS Lambda (producer) em uma determinada periodicidade.
 - Use o AWS IAM Role para atribuir as permissões que o AWS Lambda (producer) deve ter.
 - Use o AWS Kinesis para coletar os dados extraídos pelo AWS Lambda
 - Use o AWS Lambda (consumer) para consumir os dados coletados pelo AWS Kinesis.
 - Use o AWS IAM Role novamente para atribuir as permissões que o AWS Lambda (consumer) deve ter.
-- Use o AWS SNS para enviar alertas na periodicidade estabelecida por SMS e e-mail.
+- Use o AWS SNS para enviar alertas na periodicidade pré-estabelecida por SMS e e-mail.
 
 ### Pipeline Batch - Steps
+
+- Use o AWS Lambda (consumer) para consumir os dados coletados pelo AWS Kinesis e extrai-los para um bucket S3 no formato JSON.
+- Use o AWS IAM Role para atribuir as permissões que o AWS Lambda (consumer) deve ter.
+- Use o AWS Glue Crawler para catalogar os dados desse JSON e salva-los em um database.
+- Use o AWS Glue para o processo de ETL onde o arquivo JSON estabelecidos em um database serão extraídos para um outro S3 no formato Parquet.
+- Use o AWS IAM Role novamente para atribuir as permissões que o AWS Glue deve ter.
+- Use o AWS Glue Crawlernovamente para catalogar os dados desse Parquet e salva-los em um database.
+- Use o AWS Athena para consultar os dados armazenados no S3.
