@@ -23,3 +23,15 @@ O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados mete
 ### Arquitetura
 
 <img width="1200" alt="aws_pipeline_realtime_and_pipeline_batch" src="https://github.com/marcelodutra7/my-repository/blob/b64ad6cdd64dc31407b729a4d39a02d35d09e0e9/images/aws_pipeline_realtime_and_pipeline_batch.png">
+
+### Pipeline Real time - Steps
+
+- Use o AWS Lambda (producer) para extrair os dados metereológicos da API do Tomorrow.io.
+- Use o AWS CloudWatch para implantar o gatilho que ativará o código Python presente no AWS Lambda (producer) em uma periodicidade pré-estabelecida.
+- Use o AWS IAM Role para atribuir as permissões que o AWS Lambda (producer) deve ter.
+- Use o AWS Kinesis para coletar os dados extraídos pelo AWS Lambda
+- Use o AWS Lambda (consumer) para consumir os dados coletados pelo AWS Kinesis.
+- Use o AWS IAM Role novamente para atribuir as permissões que o AWS Lambda (consumer) deve ter.
+- Use o AWS SNS para enviar alertas na periodicidade estabelecida por SMS e e-mail.
+
+### Pipeline Batch - Steps
