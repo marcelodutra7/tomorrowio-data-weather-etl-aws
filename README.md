@@ -22,4 +22,4 @@ O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados mete
 
 ### Arquitetura
 
-<img width="1163" alt="aws_pipeline_realtime_and_pipeline_batch" src="https://github.com/marcelodutra7/my-repository/blob/cda4f607fde1c24276d6793a5921e6f2713936ee/images/aws_pipeline_realtime_and_pipeline_batch.jpg">
+<img width="1163" alt="aws_pipeline_realtime_and_pipeline_batch" src="https://github.com/marcelodutra7/my-repository/blob/b64ad6cdd64dc31407b729a4d39a02d35d09e0e9/images/aws_pipeline_realtime_and_pipeline_batch.png">
