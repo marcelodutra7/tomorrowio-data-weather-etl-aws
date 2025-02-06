@@ -35,7 +35,6 @@ O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados mete
 7. Use o AWS SNS para enviar alertas na periodicidade pré-estabelecida por SMS e e-mail.
 
 - **Exemplo:**
-
 <img width="420" alt="aws_pipeline_realtime_email_received" src="https://github.com/marcelodutra7/my-repository/blob/a75038b0d67d9cec8e2a2caea4211a39db24db83/images/aws_pipeline_realtime_email_received.png">
 
 ### Pipeline Batch - Steps
@@ -47,3 +46,6 @@ O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados mete
 5. Use o AWS IAM Role novamente para atribuir as permissões que o AWS Glue deve ter.
 6. Use o AWS Glue Crawlernovamente para catalogar os dados desse Parquet e salva-los em um database.
 7. Use o AWS Athena para consultar os dados armazenados no S3.
+
+- **Exemplo:**
+<img width="420" alt="aws_pipeline_batch_athena_query" src="https://github.com/marcelodutra7/my-repository/blob/40e80241b3c8795cac53eea11e7145a01376b287/images/aws_pipeline_batch_athena_query.png">
