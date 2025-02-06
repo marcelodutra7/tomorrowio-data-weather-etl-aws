@@ -26,24 +26,24 @@ O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados mete
 
 ### Pipeline Real time - Steps
 
-- Use o AWS Lambda (producer) para extrair os dados metereológicos da API do Tomorrow.io.
-- Use o AWS CloudWatch para implantar o gatilho que ativará o código Python presente no AWS Lambda (producer) em uma determinada periodicidade.
-- Use o AWS IAM Role para atribuir as permissões que o AWS Lambda (producer) deve ter.
-- Use o AWS Kinesis para coletar os dados extraídos pelo AWS Lambda
-- Use o AWS Lambda (consumer) para consumir os dados coletados pelo AWS Kinesis.
-- Use o AWS IAM Role novamente para atribuir as permissões que o AWS Lambda (consumer) deve ter.
-- Use o AWS SNS para enviar alertas na periodicidade pré-estabelecida por SMS e e-mail.
+1. Use o AWS Lambda (producer) para extrair os dados metereológicos da API do Tomorrow.io.
+2. Use o AWS CloudWatch para implantar o gatilho que ativará o código Python presente no AWS Lambda (producer) em uma determinada periodicidade.
+3. Use o AWS IAM Role para atribuir as permissões que o AWS Lambda (producer) deve ter.
+4. Use o AWS Kinesis para coletar os dados extraídos pelo AWS Lambda
+5. Use o AWS Lambda (consumer) para consumir os dados coletados pelo AWS Kinesis.
+6. Use o AWS IAM Role novamente para atribuir as permissões que o AWS Lambda (consumer) deve ter.
+7. Use o AWS SNS para enviar alertas na periodicidade pré-estabelecida por SMS e e-mail.
 
-**Exemplo:**
+- **Exemplo:**
 
 <img width="600" alt="aws_pipeline_realtime_email_received" src="https://github.com/marcelodutra7/my-repository/blob/a75038b0d67d9cec8e2a2caea4211a39db24db83/images/aws_pipeline_realtime_email_received.png">
 
 ### Pipeline Batch - Steps
 
-- Use o AWS Lambda (consumer) para consumir os dados coletados pelo AWS Kinesis e extrai-los para um bucket S3 no formato JSON.
-- Use o AWS IAM Role para atribuir as permissões que o AWS Lambda (consumer) deve ter.
-- Use o AWS Glue Crawler para catalogar os dados desse JSON e salva-los em um database.
-- Use o AWS Glue para o processo de ETL onde o arquivo JSON estabelecidos em um database serão extraídos para um outro S3 no formato Parquet.
-- Use o AWS IAM Role novamente para atribuir as permissões que o AWS Glue deve ter.
-- Use o AWS Glue Crawlernovamente para catalogar os dados desse Parquet e salva-los em um database.
-- Use o AWS Athena para consultar os dados armazenados no S3.
+1. Use o AWS Lambda (consumer) para consumir os dados coletados pelo AWS Kinesis e extrai-los para um bucket S3 no formato JSON.
+2. Use o AWS IAM Role para atribuir as permissões que o AWS Lambda (consumer) deve ter.
+3. Use o AWS Glue Crawler para catalogar os dados desse JSON e salva-los em um database.
+4. Use o AWS Glue para o processo de ETL onde o arquivo JSON estabelecidos em um database serão extraídos para um outro S3 no formato Parquet.
+5. Use o AWS IAM Role novamente para atribuir as permissões que o AWS Glue deve ter.
+6. Use o AWS Glue Crawlernovamente para catalogar os dados desse Parquet e salva-los em um database.
+7. Use o AWS Athena para consultar os dados armazenados no S3.
