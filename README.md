@@ -1,4 +1,4 @@
-# tomorrowio-data-weather-etl-aws
+# tomorrowio-data-weather-pipeline-aws
 
 ### Introdução
 
