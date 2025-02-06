@@ -22,7 +22,7 @@ O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados mete
 
 ### Arquitetura
 
-<img width="600" alt="aws_pipeline_realtime_and_pipeline_batch" src="https://github.com/marcelodutra7/my-repository/blob/b64ad6cdd64dc31407b729a4d39a02d35d09e0e9/images/aws_pipeline_realtime_and_pipeline_batch.png">
+<img width="920" alt="aws_pipeline_realtime_and_pipeline_batch" src="https://github.com/marcelodutra7/my-repository/blob/b64ad6cdd64dc31407b729a4d39a02d35d09e0e9/images/aws_pipeline_realtime_and_pipeline_batch.png">
 
 ### Pipeline Real time - Steps
 
@@ -36,7 +36,7 @@ O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados mete
 
 **Exemplo:**
 
-<img width="1200" alt="aws_pipeline_realtime_email_received" src="https://github.com/marcelodutra7/my-repository/blob/a75038b0d67d9cec8e2a2caea4211a39db24db83/images/aws_pipeline_realtime_email_received.png">
+<img width="600" alt="aws_pipeline_realtime_email_received" src="https://github.com/marcelodutra7/my-repository/blob/a75038b0d67d9cec8e2a2caea4211a39db24db83/images/aws_pipeline_realtime_email_received.png">
 
 ### Pipeline Batch - Steps
 
