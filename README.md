@@ -34,6 +34,10 @@ O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados mete
 - Use o AWS IAM Role novamente para atribuir as permissões que o AWS Lambda (consumer) deve ter.
 - Use o AWS SNS para enviar alertas na periodicidade pré-estabelecida por SMS e e-mail.
 
+**Exemplo:**
+
+<img width="1200" alt="aws_pipeline_realtime_email_received" src="https://github.com/marcelodutra7/my-repository/blob/a75038b0d67d9cec8e2a2caea4211a39db24db83/images/aws_pipeline_realtime_email_received.png">
+
 ### Pipeline Batch - Steps
 
 - Use o AWS Lambda (consumer) para consumir os dados coletados pelo AWS Kinesis e extrai-los para um bucket S3 no formato JSON.
