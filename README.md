@@ -48,4 +48,4 @@ O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados mete
 7. Use o AWS Athena para consultar os dados armazenados no S3.
 
 - **Exemplo:**
-<img width="420" alt="aws_pipeline_batch_athena_query" src="https://github.com/marcelodutra7/my-repository/blob/40e80241b3c8795cac53eea11e7145a01376b287/images/aws_pipeline_batch_athena_query.png">
+<img width="720" alt="aws_pipeline_batch_athena_query" src="https://github.com/marcelodutra7/my-repository/blob/40e80241b3c8795cac53eea11e7145a01376b287/images/aws_pipeline_batch_athena_query.png">
