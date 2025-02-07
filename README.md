@@ -28,10 +28,10 @@ O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados mete
 
 1. Use o AWS Lambda (producer) para extrair os dados metereológicos da API do Tomorrow.io.
 2. Use o AWS CloudWatch para implantar o gatilho que ativará o código Python presente no AWS Lambda (producer) em uma determinada periodicidade.
-3. Use o AWS IAM Role para atribuir as permissões que o AWS Lambda (producer) deve ter.
+3. Use o AWS IAM Role para atribuir as permissões que o AWS Lambda (producer) deve ter (acesso ao Kinesis e execução do Lambda).
 4. Use o AWS Kinesis para coletar os dados extraídos pelo AWS Lambda
 5. Use o AWS Lambda (consumer) para consumir os dados coletados pelo AWS Kinesis.
-6. Use o AWS IAM Role novamente para atribuir as permissões que o AWS Lambda (consumer) deve ter.
+6. Use o AWS IAM Role novamente para atribuir as permissões que o AWS Lambda (consumer) deve ter (acesso ao SNS e execução do Lambda).
 7. Use o AWS SNS para enviar alertas na periodicidade pré-estabelecida por SMS e e-mail.
 
 - **Exemplo:**
@@ -40,10 +40,10 @@ O Tomorrow.io Free API fornece aos desenvolvedores acesso flexível a dados mete
 ### Pipeline Batch - Steps
 
 1. Use o AWS Lambda (consumer) para consumir os dados coletados pelo AWS Kinesis e extrai-los para um bucket S3 no formato JSON.
-2. Use o AWS IAM Role para atribuir as permissões que o AWS Lambda (consumer) deve ter.
+2. Use o AWS IAM Role para atribuir as permissões que o AWS Lambda (consumer) deve ter (acesso ao Kinesis, acesso ao S3 e execução do Lambda).
 3. Use o AWS Glue Crawler para catalogar os dados desse JSON e salva-los em um database.
 4. Use o AWS Glue para o processo de ETL onde o arquivo JSON estabelecidos em um database serão extraídos para um outro S3 no formato Parquet.
-5. Use o AWS IAM Role novamente para atribuir as permissões que o AWS Glue deve ter.
+5. Use o AWS IAM Role novamente para atribuir as permissões que o AWS Glue deve ter (acesso ao S3, acesso ao service do Glue e logs do CloudWatch).
 6. Use o AWS Glue Crawler novamente para catalogar os dados desse Parquet e salva-los em um database.
 7. Use o AWS Athena para consultar os dados armazenados no S3.
 
