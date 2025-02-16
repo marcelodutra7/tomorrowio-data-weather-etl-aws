@@ -8,6 +8,7 @@ from awsglue.utils import getResolvedOptions
 from awsglue.dynamicframe import DynamicFrame
 from pyspark.sql.functions import col, year, month, dayofmonth
 
+# Obtém os argumentos do job
 args = getResolvedOptions(sys.argv, ['JOB_NAME'])
 sc = SparkContext()
 glueContext = GlueContext(sc)
@@ -15,30 +16,30 @@ spark = glueContext.spark_session
 job = Job(glueContext)
 job.init(args['JOB_NAME'], args)
 
-# parâmetros
-input_database = "raw_db"
+# Parâmetros de entrada e saída
+data_source = "raw_db"
 output_path = 's3://weather-data-tomorrowio-rt/gold/'
 
-# inicializa o cliente boto3 para Glue
+# Inicializa o cliente boto3 para Glue
 glue_client = boto3.client('glue')
 
-# obter lista de tabelas no banco de dados
-tables = glue_client.get_tables(DatabaseName=input_database)['TableList']
+# Obtém a lista de tabelas no banco de dados Glue
+tables = glue_client.get_tables(DatabaseName=data_source)['TableList']
 
 for table in tables:
     table_name = table['Name']
     
-    # lê os dados JSON do catálogo do Glue
+    # Lê os dados JSON do catálogo do Glue
     datasource = glueContext.create_dynamic_frame.from_catalog(
-        database=input_database,
+        database=data_source,
         table_name=table_name,
         transformation_ctx="datasource"
     )
 
-    # converte DynamicFrame para DataFrame
+    # Converte DynamicFrame para DataFrame para manipulação com Spark
     df = datasource.toDF()
 
-    # achata os campos aninhados
+    # Seleciona e renomeia os campos relevantes
     flattened_df = df.select(
         col("data.time").alias("time"),
         col("data.values.cloudBase").alias("cloudBase"),
@@ -65,15 +66,15 @@ for table in tables:
         col("location.lon").alias("longitude")
     )
 
-    # extrai ano, mês e dia da coluna de tempo
+    # Extrai ano, mês e dia da coluna de tempo para particionamento
     flattened_df = flattened_df.withColumn('year', year(flattened_df['time']))
     flattened_df = flattened_df.withColumn('month', month(flattened_df['time']))
     flattened_df = flattened_df.withColumn('day', dayofmonth(flattened_df['time']))
 
-    # converte de volta para DynamicFrame
+    # Converte de volta para DynamicFrame para escrita no Glue
     dynamic_frame = DynamicFrame.fromDF(flattened_df, glueContext, "dynamic_frame")
 
-    # grava os dados no formato Parquet particionado por ano, mês e dia
+    # Grava os dados no formato Parquet, particionado por ano, mês e dia
     glueContext.write_dynamic_frame.from_options(
         frame=dynamic_frame,
         connection_type="s3",
@@ -84,4 +85,5 @@ for table in tables:
         format="parquet"
     )
 
+# Finaliza o job do Glue
 job.commit()
